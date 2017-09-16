@@ -48,6 +48,7 @@ public class StudentGroup implements StudentArrayOperation {
         for (int i = 0; i < al.size(); i++) {
             al.add(students[i]);
         }
+        students=(Student[])al.toArray(students);
     }
 
     @Override
@@ -68,7 +69,7 @@ public class StudentGroup implements StudentArrayOperation {
         if (index < 0 || index >al.size()) {
             throw new IllegalArgumentException();
         }
-        al.add(index, student);
+        al.set(index, student);
 
     }
     public void add(Student student) {
