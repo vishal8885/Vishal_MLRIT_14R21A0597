@@ -77,7 +77,12 @@ public class StudentGroup implements StudentArrayOperation {
         if (index < 0 || index >al.size()) {
             throw new IllegalArgumentException();
         }
-        al.set(index, student);
+            Student temp=student;
+            temp.setId(student.getId());
+            temp.setFullName(student.getFullName());
+            temp.setBirthDate(student.getBirthDate());
+            temp.setAvgMark(student.getAvgMark());
+        al.set(index, temp);
 
     }
     public void add(Student student) {
