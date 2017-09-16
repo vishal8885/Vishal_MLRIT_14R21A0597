@@ -92,7 +92,7 @@ public class StudentGroup implements StudentArrayOperation {
         if (student == null) {
             throw new IllegalArgumentException();
         }
-        al.add(student);
+        al.set(al.size(),student);
     }
 
     @Override
