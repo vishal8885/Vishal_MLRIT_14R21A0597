@@ -18,8 +18,8 @@ import java.util.Date;
 public class StudentGroup implements StudentArrayOperation {
 
     private Student[] students;
-    private static ArrayList<Student> al=new ArrayList<Student>();
-    private static ArrayList<Student> te=new ArrayList<Student>();
+    private static ArrayList<Student> al;
+    private static ArrayList<Student> te;
     /**
      * DO NOT remove or change this constructor, it will be used during task
      * check
@@ -28,13 +28,14 @@ public class StudentGroup implements StudentArrayOperation {
      */
     public StudentGroup(int length) {
         this.students = new Student[length];
-        
+        al=new ArrayList<Student>(length);
+        te=new ArrayList<Student>();
     }
 
     @Override
     public Student[] getStudents() {
         // Add your implementation here
-        students=(Student[])al.toArray(students);
+        students=al.toArray(students);
         return students;
     }
 
@@ -48,7 +49,7 @@ public class StudentGroup implements StudentArrayOperation {
         for (int i = 0; i < al.size(); i++) {
             al.add(students[i]);
         }
-        students=(Student[])al.toArray(students);
+        this.students=al.toArray(students);
     }
 
     @Override
@@ -92,7 +93,7 @@ public class StudentGroup implements StudentArrayOperation {
         if (student == null) {
             throw new IllegalArgumentException();
         }
-        al.set(al.size(),student);
+        al.add(student);
     }
 
     @Override
