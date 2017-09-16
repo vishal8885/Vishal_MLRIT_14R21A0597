@@ -30,12 +30,14 @@ public class StudentGroup implements StudentArrayOperation {
         this.students = new Student[length];
         al=new ArrayList<Student>(length);
         te=new ArrayList<Student>();
+        
     }
 
     @Override
     public Student[] getStudents() {
         // Add your implementation here
-        students=al.toArray(students);
+        
+        this.students=al.toArray(students);
         return students;
     }
 
@@ -45,11 +47,16 @@ public class StudentGroup implements StudentArrayOperation {
         if (students == null) {
             throw new IllegalArgumentException();
         }
-        al.clear();
-        for (int i = 0; i < al.size(); i++) {
-            al.add(students[i]);
+        Student temp;
+        for (int i = 0; i < students.length; i++) {
+            temp=students[i];
+            temp.setId(students[i].getId());
+            temp.setFullName(students[i].getFullName());
+            temp.setBirthDate(students[i].getBirthDate());
+            temp.setAvgMark(students[i].getAvgMark());
+            al.add(temp);
         }
-        this.students=al.toArray(students);
+       
     }
 
     @Override
